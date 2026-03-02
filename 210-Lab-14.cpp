@@ -26,25 +26,41 @@ class Color
 };
 
 
+void populateColor(Color &c, int r, int g, int b);
+
+
 int main() 
 {
+    Color color1;
+    Color color2;
+    Color color3;
 
+    populateColor(color1, 255, 0, 0);
+    populateColor(color2, 0, 255, 0);
+    populateColor(color3, 0, 0, 255);
 
+    cout << "Color Values" << endl;
+    cout << "------------" << endl;
 
+    color1.print();
+    color2.print();
+    color3.print();
+
+    return 0;
 
 }
 
 
 void populateColor(Color &c, int r, int g, int b)
 {
-    c.setRed();
-    c.setGreen();
-    c.setBlue();
+    c.setRed(r);
+    c.setGreen(g);
+    c.setBlue(b);
 }
 
 void Color::setRed(int r) 
 {
-    if (red >= MIN_RGB && red <= MAX_RGB)
+    if (r >= MIN_RGB && r <= MAX_RGB)
     {
         red = r;
     } else{
@@ -53,9 +69,9 @@ void Color::setRed(int r)
     }
 }
 
-void Color::setGreen(int r) 
+void Color::setGreen(int g) 
 {
-    if (green >= MIN_RGB && green <= MAX_RGB)
+    if (g >= MIN_RGB && g <= MAX_RGB)
     {
         green = g;
     } else{
@@ -66,7 +82,7 @@ void Color::setGreen(int r)
 
 void Color::setBlue(int b) 
 {
-    if (blue >= MIN_RGB && blue <= MAX_RGB)
+    if (b >= MIN_RGB && b <= MAX_RGB)
     {
         blue = b;
     } else{
@@ -105,5 +121,6 @@ int Color::getBlue() const
 void Color::print() const
 {
     cout << "RGB(" << red << ", " 
-         << green)"
+         << green << ", "
+         << blue << ")" << endl;
 }
